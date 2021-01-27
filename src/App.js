@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import Search from './components/Search';
+import View from './components/View';
+import {AppContext} from './context/AppContext';
+import { useEffect, useContext } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const {fetchLatestNews} = useContext(AppContext);
+  useEffect(() => {   
+      fetchLatestNews();
+  }, [])
+    return (
+      <>
+       <Search />
+        <View />        
+      </>
+    );
 }
 
 export default App;

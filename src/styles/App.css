@@ -1,0 +1,43 @@
+.news_panel {
+  width: auto;
+  padding-left: 5%;
+  padding-top: 3%;
+  padding-right: 5%;
+  padding-bottom: 2%;
+  border-bottom: 1px solid rgb(128, 121, 121);
+}
+
+.search_panel {
+  padding-left: 5%;
+  margin-top: 2%;
+  width: auto;
+}
+
+.search_panel > form > div {
+  padding-bottom: 1%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: rgb(202, 202, 250);
+  border: 1px solid rgb(202, 202, 250);
+}
+
+.start_date {
+  margin-left: 15%;
+}
+
+.end_date {
+  margin-left: 35%;
+}
+
+.content {
+  display: inline-block;
+  width: 70%;
+  margin-left: 1%;
+}
+
+.blurContent {
+  color: transparent;
+  text-shadow: 0 0 1px rgb(218, 210, 210);
+}
