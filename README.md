@@ -14,8 +14,6 @@ module.exports = {
 newsOrgKey : 'newsorg api key'
 }
 
-Installs the dependencies.
-
 ### `npm start`
 
 Runs the app in the development mode.\
