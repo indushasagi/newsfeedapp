@@ -1,5 +1,6 @@
 import React, { createContext } from 'react';
 import axios from 'axios';
+import keys from '../config/key';
 
 export const initialAppContext = {
     result: []
@@ -12,7 +13,7 @@ class AppContextProvider extends React.Component {
     }
 
     fetchLatestNews = async () => {
-        await axios.get('https://newsapi.org/v2/top-headlines?country=gb&apiKey=bb06b2aede6540769022da430556b8e4')
+        await axios.get(`https://newsapi.org/v2/top-headlines?country=gb&apiKey=${keys.newsOrgKey}`)
         .then((response) => {
             const res = response.data.articles;
             this.setState({result:res});
@@ -39,10 +40,8 @@ class AppContextProvider extends React.Component {
     fetchNews = async (event,searchParam, startdate, enddate) => {
         event.preventDefault();
         if(searchParam){
-            console.log('test');
-            await axios.get(`https://newsapi.org/v2/everything?q=${searchParam}&from=${this.formatDate(startdate)}&to=${this.formatDate(enddate)}&language=en&apiKey=bb06b2aede6540769022da430556b8e4`)
+            await axios.get(`https://newsapi.org/v2/everything?q=${searchParam}&from=${this.formatDate(startdate)}&to=${this.formatDate(enddate)}&language=en&apiKey=${keys.newsOrgKey}`)
             .then((response) =>{
-                console.log(response);
                 const res = response.data.articles;
                 this.setState({result:res});
             })
