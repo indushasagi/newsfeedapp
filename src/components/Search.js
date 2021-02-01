@@ -8,6 +8,10 @@ function Search(){
     const [searchParam, setSearchParam ] = useState('');
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+    const [prefLang, setPrefLang] = useState("ru");
+    const selectLang = (event) => {
+        setPrefLang(event.target.value);
+    }
     return(
         <div className="search_panel">
             <form>
@@ -24,7 +28,14 @@ function Search(){
                     <label>To: </label><br />
                     <DatePicker selected={endDate} onChange={date => setEndDate(date)} />
                 </div>
-                <button type="submit" className="btn" onClick={(event) => fetchNews(event,searchParam, startDate, endDate)}>Fetch News</button>
+                <div>
+                    <label>Choose language: </label><br />
+                    <select onChange={(event) => selectLang(event)}>
+                        <option value="ru">RU</option>
+                        <option value="es">UK</option>
+                    </select>
+                </div>
+                <button type="submit" className="btn" onClick={(event) => fetchNews(event,searchParam, startDate, endDate, prefLang)}>Fetch News</button>
             </form>
         </div>
     )

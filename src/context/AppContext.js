@@ -37,10 +37,10 @@ class AppContextProvider extends React.Component {
         return [year, month, day].join('-');
     }
 
-    fetchNews = async (event,searchParam, startdate, enddate) => {
+    fetchNews = async (event,searchParam, startdate, enddate, prefLang) => {
         event.preventDefault();
         if(searchParam){
-            await axios.get(`https://newsapi.org/v2/everything?q=${searchParam}&from=${this.formatDate(startdate)}&to=${this.formatDate(enddate)}&language=en&apiKey=${keys.newsOrgKey}`)
+            await axios.get(`https://newsapi.org/v2/everything?q=${searchParam}&from=${this.formatDate(startdate)}&to=${this.formatDate(enddate)}&language=${prefLang}&apiKey=${keys.newsOrgKey}`)
             .then((response) =>{
                 const res = response.data.articles;
                 this.setState({result:res});
